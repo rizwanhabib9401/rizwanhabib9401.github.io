@@ -1,0 +1,25 @@
+.whatsapp-widget {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #25d366; /* Official WhatsApp Green */
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999; /* Ensures it stays on top of other elements */
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.whatsapp-widget:hover {
+  background-color: #1ebe5d;
+  transform: scale(1.1);
+  color: white;
+}
