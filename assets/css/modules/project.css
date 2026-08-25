@@ -29,7 +29,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 999;
+  z-index: 99;
   scale: 0.5;
   opacity: 0;
   -webkit-transform: perspective(4000px) rotateX(90deg);
