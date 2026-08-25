@@ -1,0 +1,158 @@
+.theme-btn {
+  cursor: pointer;
+  display: inline-block;
+  transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+}
+/* Btn Style One */
+
+.btn-style-one {
+  position: relative;
+  font-weight: 600;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  padding: 10px 30px;
+  display: inline-flex;
+  color: var(--black);
+  font-size: 14px;
+  text-transform: capitalize;
+  background-color: var(--primary);
+}
+
+.btn-style-one:before {
+  -webkit-transition-duration: 800ms;
+  transition-duration: 800ms;
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  content: "";
+  top: -200%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  border-radius: 50%;
+  z-index: 1;
+  background-color: var(--white);
+}
+
+.btn-style-one:hover:before {
+  top: 0%;
+}
+
+.btn-style-one .btn-wrap {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.btn-style-one .btn-wrap .text-one {
+  position: relative;
+  display: block;
+  color: var(--black);
+  transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+}
+
+.btn-style-one:hover .btn-wrap .text-one:first-child {
+  -webkit-transform: translateY(-150%);
+  -ms-transform: translateY(-150%);
+  transform: translateY(-150%);
+}
+
+.btn-style-one .btn-wrap .text-two {
+  position: absolute;
+  top: 100%;
+  display: block;
+  color: var(--black);
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.btn-style-one:hover .btn-wrap .text-two {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.btn-style-one:hover .btn-wrap .text-two {
+  color: var(--black);
+}
+
+.btn-style-one:hover:before {
+  top: -40%;
+}
+
+.magnetic-btn {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  font-size: 16px;
+  border: 1px solid var(--secondary);
+  color: var(--gray-2);
+  text-decoration: none;
+  font-weight: 400;
+  line-height: 1.3;
+  overflow: hidden;
+  z-index: 1; /* Ta k text opar show ho */
+
+  /* 🔥 FIX: 'all' or 'transform' hata diya. Sirf colors aur border smoothly change hon */
+  -webkit-transition:
+    color 0.3s ease,
+    border-color 0.3s ease;
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease;
+
+  /* Button main hover cursor pointer apply karein */
+  cursor: pointer;
+}
+
+.magnetic-btn:hover {
+  color: var(--black);
+}
+
+.btn-fill {
+  position: absolute;
+  background-color: var(--white);
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+
+  /* 🔥 Fill ko aur slow kar diya (1.5s) */
+  -webkit-transition:
+    width 1.5s cubic-bezier(0.19, 1, 0.22, 1),
+    height 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+  transition:
+    width 1.5s cubic-bezier(0.19, 1, 0.22, 1),
+    height 1.5s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: -1; /* Fill text k peeche jaye */
+  pointer-events: none;
+}
+
+.btn-fill-two {
+  background-color: var(--primary);
+}
+
+.magnetic-btn:hover .btn-fill {
+  width: 400px;
+  height: 400px;
+}
+
+.btn-text {
+  position: relative;
+  z-index: 1; /* Text hamesha sub se opar rahay */
+  pointer-events: none;
+}

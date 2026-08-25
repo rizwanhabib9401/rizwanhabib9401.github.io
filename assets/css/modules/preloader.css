@@ -1,0 +1,41 @@
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000; /* Pitch black for maximum contrast */
+  z-index: 10000; /* Sab se upar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Clip path base shape (full screen) */
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.preloader-counter {
+  font-size: 8rem;
+  font-weight: 700;
+  color: var(--gray);
+  margin-bottom: 2rem;
+  line-height: 1;
+}
+
+.preloader-bar-container {
+  width: 50%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 15px;
+}
+
+.preloader-bar {
+  width: 0%;
+  height: 100%;
+  background: var(--primary);
+  border-radius: 10px;
+  display: block;
+}

@@ -1,0 +1,114 @@
+/* Section & Container Setup */
+.services-section {
+  background-color: var(--d-black-3);
+  position: relative;
+  padding-bottom: 130px;
+}
+
+.services-section .sec-title-wrapper {
+  position: relative;
+  padding-left: 330px;
+  padding-top: 130px;
+}
+
+.services-section .sec-sub-title {
+  padding-top: 50px;
+  text-transform: uppercase;
+  background-color: var(--d-black-3);
+}
+
+.services-section .sec-title {
+  padding-bottom: 40px;
+  text-transform: uppercase;
+  background-color: var(--d-black-3);
+}
+
+.services-section .sec-title-wrapper p {
+  padding-top: 70px;
+  padding-bottom: 60px;
+  max-width: 410px;
+  font-size: 18px;
+  line-height: 1.4;
+  margin-left: 220px;
+}
+
+.services-section .sec-title-wrapper::after {
+  position: absolute;
+  content: "";
+  left: 40%;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background-color: var(--black-6);
+}
+
+.revers.curve {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  z-index: 99;
+}
+
+.revers.curve svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.portfolio__service-list {
+  padding-top: 62px;
+}
+
+.portfolio__service-item {
+  position: relative;
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid var(--black-6);
+  background-color: var(--black-4);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  transition: all 0.3s;
+  margin-top: 30px;
+}
+
+.portfolio__service-item:hover {
+  background-color: var(--black-4);
+  border-color: var(--primary);
+}
+
+.service-icon-card {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 25px;
+  color: var(--white);
+  border: 1px solid var(--black-6);
+  transition: all 0.3s;
+}
+
+.portfolio__service-item:hover .service-icon-card {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: var(--black);
+}
+
+.ps-title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.2;
+  text-transform: uppercase;
+}

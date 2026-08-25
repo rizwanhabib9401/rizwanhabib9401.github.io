@@ -1,0 +1,152 @@
+.experince-section {
+  position: relative;
+  padding: 100px 0;
+}
+
+/* Container matching 1 card height + Overflow Hidden */
+.cards-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 70px auto 0;
+  padding: 0;
+  height: 450px;
+  overflow: hidden;
+}
+
+/* High Specificity Absolute Card Rules */
+.experince-section .cards-wrapper .card-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border-radius: 20px;
+  padding: 40px;
+
+  background: var(--d-black-3, #1a1a1a);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform-origin: top center;
+  will-change: transform, filter, opacity;
+  transition:
+    border-color 0.3s ease,
+    background-color 0.5s ease;
+}
+
+.experince-section .cards-wrapper .card-item:hover {
+  border-color: var(--primary);
+}
+
+/* Top Header inside Card */
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.card-item .icon-box {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 25px;
+  color: var(--white);
+  border: 1px solid var(--black-6);
+  transition: all 0.3s;
+}
+
+.card-item .icon-box i {
+  line-height: 1;
+}
+
+.card-item:hover .icon-box {
+  border-color: var(--primary);
+  background-color: var(--primary);
+  color: var(--black-6);
+}
+
+.company-tag {
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 6px 16px;
+  border-radius: 100px;
+  background: var(--black-6);
+  border: 1px solid var(--black-6);
+  color: var(--white);
+}
+
+/* Card Content */
+.card-body {
+  flex-grow: 1;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.card-skill__list {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.card-skill__list li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 15px;
+  font-size: 12px;
+  text-transform: uppercase;
+  border: 1px solid var(--black-6);
+  border-radius: 30px;
+}
+/* Card Footer Accent / Number */
+.card-footer {
+  margin-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--black-6);
+}
+
+.card-number {
+  font-size: 16;
+  font-weight: 600;
+  color: var(--gray-2);
+  letter-spacing: 0.05em;
+}
+
+.card-action {
+  font-size: 0.95rem;
+  color: #818cf8;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  transition: gap 0.2s ease;
+}
+
+.card-action:hover {
+  gap: 10px;
+}

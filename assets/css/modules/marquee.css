@@ -1,0 +1,38 @@
+.hero-bottom-curve {
+  position: relative;
+  padding: 60px 0 80px;
+}
+
+.marquee-content {
+  display: inline-block;
+  padding-top: 20px; /* Push down to align with curve center */
+  font-size: 3rem;
+  font-weight: 700;
+  animation: scroll-marquee 25s linear infinite;
+  text-transform: uppercase;
+}
+
+.marquee-content span {
+  margin: 0 1rem;
+}
+
+.star-icon {
+  font-size: 1.5rem;
+  vertical-align: middle;
+  color: var(--primary);
+}
+
+/* The hollow text effect from the image */
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.7);
+}
+
+@keyframes scroll-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  } /* Scrolls exactly half its duplicated length */
+}
