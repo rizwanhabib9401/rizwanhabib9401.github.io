@@ -21,6 +21,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 0px 30px;
   position: relative;
+  z-index: 1;
   margin-bottom: 0;
 }
 
@@ -84,5 +85,8 @@
 }
 
 .row_bottom {
-  margin-top: 33vh;
+  position: relative;
+  z-index: 2;
+  clear: both;
+  margin-top: 70vh;
 }

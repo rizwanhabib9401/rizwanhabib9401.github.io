@@ -251,37 +251,45 @@ magneticBtns.forEach((btn) => {
 // ==========================================
 // 7. Portfolio Section Animations
 // ==========================================
-let mm = gsap.matchMedia();
-
-// Add your desktop media query (greater than 1300px)
-mm.add("(min-width: 1301px)", () => {
-  // Put all your desktop-specific GSAP code inside this function
-  const portfolioTl = gsap.timeline({
+if (deviceWidth > 767) {
+  let portfolioline = gsap.timeline({
     scrollTrigger: {
       trigger: ".portfolio__area",
       start: "top center-=200",
       pin: ".portfolio__text",
-      end: "bottom 85%",
+      end: "bottom bottom+=-30",
+      markers: false,
       pinSpacing: false,
       scrub: 1,
-      markers: false,
     },
   });
 
-  portfolioTl
-    .to(".portfolio__text", { scale: 3, duration: 1 })
-    .to(".portfolio__text", { scale: 3, duration: 1 })
-    .to(".portfolio__text", { scale: 1, duration: 1 }, "+=2");
+  portfolioline.to(".portfolio__text", {
+    scale: 3,
+    duration: 1,
+  });
+  portfolioline.to(".portfolio__text", {
+    scale: 3,
+    duration: 1,
+  });
+  portfolioline.to(
+    ".portfolio__text",
+    {
+      scale: 1,
+      duration: 1,
+    },
+    "+=2",
+  );
+}
 
-  // GSAP will automatically clean this up if the window shrinks below 1301px
-});
-
-const portfolioItems = gsap.utils.toArray(".portfolio__item");
-portfolioItems.forEach((portfolio) => {
+let portfolio_lists = gsap.utils.toArray(".portfolio__item");
+portfolio_lists.forEach((portfolio, i) => {
   gsap.set(portfolio, { opacity: 0.7 });
-  const t1 = gsap.timeline();
+  let t1 = gsap.timeline();
 
-  t1.set(portfolio, { position: "relative" });
+  t1.set(portfolio, {
+    position: "relative",
+  });
   t1.to(portfolio, {
     scrollTrigger: {
       trigger: portfolio,
@@ -289,11 +297,23 @@ portfolioItems.forEach((portfolio) => {
       duration: 1.5,
       start: "top bottom+=100",
       end: "bottom center",
+      markers: false,
     },
     scale: 1,
     opacity: 1,
     rotateX: 0,
   });
+});
+
+gsap.to(".bg_image img", {
+  xPercent: -18,
+  scrollTrigger: {
+    trigger: ".portfolio__area",
+    start: "top top",
+    end: "bottom center",
+    pin: ".bg_image",
+    scrub: 3,
+  },
 });
 
 // ==========================================
@@ -514,7 +534,9 @@ splitTextLines.forEach((splitTextLine) => {
 // ==========================================
 // 13. Buttons Animation
 // ==========================================
-let arr2 = gsap.utils.toArray(".button-wrapper");
+let arr2 = gsap.utils.toArray(
+  ".button-wrapper:not(.hero-section .button-wrapper)",
+);
 
 arr2.forEach((btn) => {
   gsap.from(btn, {
@@ -756,4 +778,63 @@ jQuery(document).ready(function () {
 // Update Lenis on window resize
 window.addEventListener("resize", () => {
   lenis.resize();
+});
+
+// ==========================================
+// 18. Contact Form EmailJS Submission
+// ==========================================
+$(function () {
+  var form = document.getElementById("contact-form");
+  var formMessages = $(".form-messages");
+
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Change button text while sending
+      var btnText = $(form).find(".btn-text").html();
+      $(form)
+        .find(".btn-text")
+        .html('Sending... <i class="ri-arrow-right-up-line"></i>');
+
+      // Submit the form using Formspree for GitHub Pages / Vercel
+      var formData = $(form).serialize();
+
+      $.ajax({
+        type: "POST",
+        url: "https://formspree.io/f/mzededdb", // FIXME: Replace with your actual Formspree endpoint ID
+        data: formData,
+        dataType: "json",
+      })
+        .done(function (response) {
+          $(formMessages).removeClass("bg-danger text-white");
+          $(formMessages).addClass("bg-success text-white");
+          $(formMessages).text("Thank You! Your message has been sent.");
+          $(formMessages).fadeIn();
+
+          // Clear form
+          form.reset();
+          setTimeout(function () {
+            $(formMessages).fadeOut();
+          }, 5000);
+          $(form).find(".btn-text").html(btnText);
+        })
+        .fail(function (data) {
+          $(formMessages).removeClass("bg-success text-white");
+          $(formMessages).addClass("bg-danger text-white");
+          if (data.responseText !== "") {
+            $(formMessages).text(data.responseText);
+          } else {
+            $(formMessages).text(
+              "Oops! An error occurred and your message could not be sent.",
+            );
+          }
+          $(formMessages).fadeIn();
+          setTimeout(function () {
+            $(formMessages).fadeOut();
+          }, 5000);
+          $(form).find(".btn-text").html(btnText);
+        });
+    });
+  }
 });

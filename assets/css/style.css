@@ -13,8 +13,8 @@
 @import url(modules/footer.css);
 @import url(modules/mobile-menu.css);
 @import url(modules/whatsapp-widget.css);
+@import url(modules/work.css);
 @import url(swiper.min.css);
-
 :root {
   --primary: #c9f31d;
   --secondary: #2c2c2c;
@@ -143,6 +143,14 @@ p {
   color: var(--gray-2);
   position: relative;
   z-index: 1;
+}
+
+p a {
+  color: inherit
+}
+
+p a:hover {
+  color: var(--primary);
 }
 
 video,

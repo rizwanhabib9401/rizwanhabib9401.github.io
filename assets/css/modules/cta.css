@@ -3,11 +3,22 @@
   padding: 120px 0;
 }
 
-.cta__content-2,
+.cta__area-3::before {
+  background-color: var(--d-black-2);
+  position: absolute;
+  right: 0;
+  width: 54.5%;
+  top: 0;
+  bottom: 0;
+  content: '';
+}
+
+.z-index-9 {
+  z-index: 9;
+}
+
 .cta__content-3 {
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
+  margin-right: 50px;
 }
 
 .cta__sub-title-2 {
@@ -19,8 +30,7 @@
 }
 
 .cta__title-2 {
-  font-weight: 300;
-  font-size: 100px;
+  font-size: 50px;
   line-height: 1;
   color: var(--white);
   padding-bottom: 60px;
@@ -29,37 +39,162 @@
 .cta-detail {
   position: relative;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 15px;
-  border: 1px solid var(--secondary);
-  padding: 3px;
-  border-radius: 100px;
 }
 
 .cta-detail li {
   display: flex;
   align-items: center;
-  gap: 10px;
-}
-
-.cta-detail li:first-child {
-  border-right: 1px solid var(--secondary);
-  padding-right: 15px;
+  gap: 20px;
 }
 
 .cta-detail i {
   display: inline-flex;
-  width: 40px;
-  height: 40px;
-  border: 1px solid var(--secondary);
+  width: 50px;
+  height: 50px;
+  border: 1px solid var(--primary);
+  background-color: var(--primary);
   border-radius: 50%;
-  color: var(--white);
-  font-size: 16px;
+  color: var(--black);
+  font-size: 20px;
   align-items: center;
   justify-content: center;
+  transition: background-color 0.5s ease, transform 0.3s ease-in;
+}
+
+.cta-detail li:hover i {
+  background-color: var(--white);
+  transform: rotateY(180deg);
 }
 
 .cta-detail a {
   font-size: 16px;
+  color: var(--gray-2);
+}
+
+.contact__form {
+  position: relative;
+  z-index: 9;
+}
+
+.contact__form input,
+.contact__form textarea {
+  width: 100%;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
   color: var(--white);
+  border: none;
+  border-bottom: 1px solid var(--bg-line);
+  padding: 15px 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  outline: 0;
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  margin-bottom: 35px;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+
+  .contact__form input,
+  .contact__form textarea {
+    padding: 10px 0;
+    margin-bottom: 25px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+  .contact__form input,
+  .contact__form textarea {
+    padding: 10px 0;
+    margin-bottom: 25px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+
+  .contact__form input,
+  .contact__form textarea {
+    margin-bottom: 20px;
+  }
+}
+
+.contact__form input:focus,
+.contact__form textarea:focus {
+  border-bottom: 1px solid var(--white);
+}
+
+.contact__form input::-webkit-input-placeholder,
+.contact__form textarea::-webkit-input-placeholder {
+  color: var(--white);
+  opacity: 1;
+}
+
+.contact__form input::-moz-placeholder,
+.contact__form textarea::-moz-placeholder {
+  color: var(--white);
+  opacity: 1;
+}
+
+.contact__form input:-ms-input-placeholder,
+.contact__form textarea:-ms-input-placeholder {
+  color: var(--white);
+  opacity: 1;
+}
+
+.contact__form input::-ms-input-placeholder,
+.contact__form textarea::-ms-input-placeholder {
+  color: var(--white);
+  opacity: 1;
+}
+
+.contact__form input::placeholder,
+.contact__form textarea::placeholder {
+  color: var(--white);
+  opacity: 1;
+}
+
+.contact__form textarea {
+  height: 55px;
+}
+
+.contact__form #btn_wrapper,
+.contact__form .btn_wrapper {
+  margin-top: -20px;
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+
+  .contact__form #btn_wrapper,
+  .contact__form .btn_wrapper {
+    margin-top: -10px;
+  }
+}
+
+@media (max-width: 1200px) {
+
+  .contact__form #btn_wrapper,
+  .contact__form .btn_wrapper {
+    margin-top: 10px;
+  }
+}
+
+/* Input aur Textarea ke liye autofill background fix */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #161616 inset !important;
+  /* Yahan apna dark background color laga dein */
+  -webkit-text-fill-color: #ffffff !important;
+  /* Text ka color white karne ke liye */
+  transition: background-color 5000s ease-in-out 0s;
 }
